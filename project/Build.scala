@@ -35,6 +35,7 @@ object Dependencies {
 
   val json4s = "org.json4s" %% "json4s-jackson" % "3.1.0"
   val jetty = "org.eclipse.jetty" % "jetty-webapp" % "8.1.7.v20120910" % "container"
+  val commonsLang = "org.apache.commons" % "commons-lang3" % "3.1"
   val scalatraStack = Seq(scalatra, scalatraJson )
 
   // If the scope is provided;test, as in scalatra examples then gen-idea generates the incorrect scope (test).
@@ -54,6 +55,6 @@ object ExampleAppBuild extends Build {
     settings = buildSettings ++ webSettings ++
       Seq(libraryDependencies ++= Seq(json4s, servletApiProvided)
         ++ scalatraStack
-        ++ Seq(jetty, servletApiProvided))
+        ++ Seq(jetty, servletApiProvided, commonsLang))
   )
 }
